@@ -2,24 +2,36 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>SEE – Contact</title>
+<title>Contact – SEE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<nav>...</nav>
-<div class="mobile-menu" id="mobileMenu">...</div>
+<nav>
+  <div class="logo">SEE</div>
+  <ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="informations.html">Informations</a></li>
+    <li><a href="podcast.html">Podcast</a></li>
+    <li><a href="interview.html">Interview</a></li>
+  </ul>
+  <a href="connexion.html" class="login-btn">👤 Login</a>
+</nav>
 
-<div class="container">
-  <h2>Contact</h2>
-  <form>
-    <input type="text" placeholder="Nom">
-    <input type="email" placeholder="Email">
+<main class="page">
+  <h1>Contact</h1>
+
+  <form class="contact-form">
+    <input type="text" placeholder="Nom" required>
+    <input type="email" placeholder="Email" required>
     <textarea placeholder="Message"></textarea>
-    <button>Envoyer</button>
+    <button type="submit">Envoyer</button>
   </form>
-</div>
+</main>
 
-<script src="script.js"></script>
+<a href="index.html" class="back-home">← Revenir à l’accueil</a>
+
 </body>
 </html>
