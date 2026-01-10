@@ -2,18 +2,22 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>SEE — Login</title>
+<title>Connexion SEE</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<main class="login-page">
-  <h1>Connexion SEE</h1>
-  <input type="text" placeholder="Identifiant">
-  <input type="password" placeholder="Mot de passe">
-  <a href="tableau-de-bord.html" class="btn">Se connecter</a>
-</main>
+<div class="login-page">
+  <h1>Connexion Pro SEE</h1>
 
+  <input id="user" placeholder="Identifiant">
+  <input id="pass" type="password" placeholder="Mot de passe">
+
+  <button onclick="login()">Se connecter</button>
+  <p id="error"></p>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
