@@ -2,30 +2,28 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Dashboard – SEE</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard SEE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <nav>
-  <div class="logo">SEE – Dashboard</div>
-  <a href="index.html" class="login-btn">← Accueil</a>
+  <div class="logo">SEE — Dashboard</div>
+  <a href="index.html">Retour site</a>
 </nav>
 
-<main class="page">
+<main class="container">
   <h1>Créer une publication</h1>
 
-  <form id="postForm">
-    <input type="text" id="title" placeholder="Titre" required>
-    <input type="text" id="image" placeholder="URL de l’image" required>
-    <textarea id="content" placeholder="Description"></textarea>
-    <input type="date" id="date" required>
-    <button type="submit">Publier</button>
+  <form class="card">
+    <input type="text" placeholder="Titre">
+    <input type="date">
+    <input type="text" placeholder="Lien image">
+    <textarea placeholder="Contenu de l’article"></textarea>
+    <button>Publier</button>
   </form>
 </main>
 
-<script src="script.js"></script>
 </body>
 </html>
