@@ -2,19 +2,30 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>SEE – Connexion</title>
+<title>Dashboard – SEE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="container">
-  <h2>Connexion Pro SEE</h2>
-  <form action="dashboard.html">
-    <input type="text" placeholder="Identifiant">
-    <input type="password" placeholder="Mot de passe">
-    <button>Se connecter</button>
-  </form>
-</div>
+<nav>
+  <div class="logo">SEE – Dashboard</div>
+  <a href="index.html" class="login-btn">← Accueil</a>
+</nav>
 
+<main class="page">
+  <h1>Créer une publication</h1>
+
+  <form id="postForm">
+    <input type="text" id="title" placeholder="Titre" required>
+    <input type="text" id="image" placeholder="URL de l’image" required>
+    <textarea id="content" placeholder="Description"></textarea>
+    <input type="date" id="date" required>
+    <button type="submit">Publier</button>
+  </form>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>
