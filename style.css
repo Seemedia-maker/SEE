@@ -1,111 +1,81 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, Helvetica, sans-serif;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f6f6f6;
 }
 
-body{
-  background:#f5f5f5;
-  color:#111;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: white;
+  border-bottom: 1px solid #ddd;
 }
 
-/* NAVBAR */
-nav{
-  background:#000;
-  color:#fff;
-  padding:15px 30px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
 }
 
-nav h1{
-  font-size:20px;
-  letter-spacing:2px;
+nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
 }
 
-nav ul{
-  list-style:none;
-  display:flex;
-  gap:25px;
+.logo {
+  font-weight: bold;
+  font-size: 22px;
 }
 
-nav ul li a{
-  color:white;
-  text-decoration:none;
-  font-size:14px;
-  text-transform:uppercase;
+.login-btn {
+  border: 1px solid black;
+  padding: 6px 12px;
 }
 
-.burger{
-  display:none;
-  flex-direction:column;
-  gap:5px;
-  cursor:pointer;
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 30px;
 }
 
-.burger span{
-  width:25px;
-  height:3px;
-  background:white;
+.card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
 }
 
-/* MOBILE MENU */
-.mobile-menu{
-  display:none;
-  flex-direction:column;
-  background:black;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
-.mobile-menu a{
-  padding:15px;
-  color:white;
-  text-decoration:none;
-  border-top:1px solid #333;
+.back {
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
-/* CONTENT */
-.container{
-  max-width:1000px;
-  margin:40px auto;
-  padding:0 20px;
+input, textarea, button {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
 }
 
-.article{
-  background:white;
-  padding:20px;
-  margin-bottom:20px;
-  border-radius:8px;
+button, .btn {
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: center;
 }
 
-.article img{
-  width:100%;
-  border-radius:8px;
-  margin-bottom:10px;
-}
-
-.article h2{
-  margin-bottom:10px;
-}
-
-/* FORM */
-input, textarea, button{
-  width:100%;
-  padding:12px;
-  margin-bottom:15px;
-}
-
-button{
-  background:black;
-  color:white;
-  border:none;
-  cursor:pointer;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  nav ul{display:none;}
-  .burger{display:flex;}
-  .mobile-menu.active{display:flex;}
+.login-page {
+  max-width: 400px;
+  margin: 100px auto;
+  background: white;
+  padding: 30px;
 }
