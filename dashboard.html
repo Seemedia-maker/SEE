@@ -13,17 +13,16 @@
   <a href="index.html">Retour site</a>
 </nav>
 
-<main class="container">
-  <h1>Créer une publication</h1>
+<div class="container">
+  <h1>Nouvelle publication</h1>
 
-  <form class="card">
-    <input type="text" placeholder="Titre">
-    <input type="date">
-    <input type="text" placeholder="Lien image">
-    <textarea placeholder="Contenu de l’article"></textarea>
-    <button>Publier</button>
-  </form>
-</main>
+  <input id="title" placeholder="Titre">
+  <input id="image" placeholder="Lien image">
+  <textarea id="content" placeholder="Contenu"></textarea>
+  <button onclick="publish()">Publier</button>
+</div>
 
+<script src="app.js"></script>
 </body>
 </html>
+
