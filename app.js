@@ -1,4 +1,9 @@
 /* =========================
+   AUTH CHECK
+========================= */
+const isConnected = localStorage.getItem("connected") === "true";
+
+/* =========================
    LOGIN
 ========================= */
 function login() {
@@ -14,33 +19,14 @@ function login() {
 }
 
 /* =========================
-   PROTECTION DASHBOARD
-========================= */
-if (window.location.pathname.includes("dashboard.html")) {
-  if (localStorage.getItem("connected") !== "true") {
-    window.location.href = "login.html";
-  }
-}
-
-/* =========================
-   PUBLISH ARTICLE
+   PUBLISH
 ========================= */
 function publish() {
-  const title = document.getElementById("title").value;
-  const image = document.getElementById("image").value;
-  const source = document.getElementById("source").value;
-  const content = document.getElementById("content").value;
-
-  if (!title || !image || !content) {
-    alert("Merci de remplir tous les champs obligatoires");
-    return;
-  }
-
   const article = {
-    title,
-    image,
-    source,
-    content,
+    title: title.value,
+    image: image.value,
+    source: source.value,
+    content: content.value,
     date: new Date().toLocaleDateString()
   };
 
@@ -52,27 +38,50 @@ function publish() {
 }
 
 /* =========================
-   LOAD ARTICLES (ACCUEIL)
+   DELETE
+========================= */
+function deleteArticle(index) {
+  if (!confirm("Supprimer cet article ?")) return;
+
+  const articles = JSON.parse(localStorage.getItem("articles")) || [];
+  articles.splice(index, 1);
+  localStorage.setItem("articles", JSON.stringify(articles));
+  location.reload();
+}
+
+/* =========================
+   EDIT
+========================= */
+function editArticle(index) {
+  localStorage.setItem("editIndex", index);
+  window.location.href = "dashboard.html";
+}
+
+/* =========================
+   LOAD ARTICLES
 ========================= */
 const container = document.getElementById("articles");
 
 if (container) {
   const articles = JSON.parse(localStorage.getItem("articles")) || [];
 
-  if (articles.length === 0) {
-    container.innerHTML = "<p>Aucun article publié pour le moment.</p>";
-  }
-
-  articles.forEach(a => {
+  articles.forEach((a, i) => {
     container.innerHTML += `
-      <div class="card">
-        <img src="${a.image}" alt="">
+      <article class="card fade-in">
+        <img src="${a.image}">
         <div class="card-content">
           <h2>${a.title}</h2>
           <p>${a.content}</p>
-          <span>${a.source || "SEE"} · ${a.date}</span>
+          <span>${a.source} · ${a.date}</span>
+
+          ${isConnected ? `
+          <div class="admin-actions">
+            <button onclick="editArticle(${i})">✏️ Modifier</button>
+            <button onclick="deleteArticle(${i})">🗑 Supprimer</button>
+          </div>` : ""}
         </div>
-      </div>
+      </article>
     `;
   });
 }
+
