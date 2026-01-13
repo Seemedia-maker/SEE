@@ -5,27 +5,10 @@ function login() {
 
   if (user === "admin" && pass === "see2026") {
     localStorage.setItem("connected", "true");
-    window.location.href = "tableau-de-bord.html";
+    window.location.href = "dashboard.html"; // ✅ PAGE QUI DOIT EXISTER
   } else {
     document.getElementById("error").innerText = "Accès refusé";
   }
-}
-
-/* PUBLISH */
-function publish() {
-  const article = {
-    title: document.getElementById("title").value,
-    image: document.getElementById("image").value,
-    content: document.getElementById("content").value,
-    date: new Date().toLocaleDateString()
-  };
-
-  const articles = JSON.parse(localStorage.getItem("articles")) || [];
-  articles.unshift(article);
-  localStorage.setItem("articles", JSON.stringify(articles));
-
-  alert("Article publié !");
-  window.location.href = "index.html";
 }
 
 /* LOAD ARTICLES */
