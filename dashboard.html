@@ -5,28 +5,145 @@
 <title>Dashboard – SEE</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-body{
-  font-family:Inter, sans-serif;
-  background:#f4f6f8;
-  padding:40px;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter', sans-serif;
 }
-h1{
+
+body{
+  background:#f4f6f8;
+  color:#111;
+  animation:fadeIn .6s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* HEADER */
+header{
+  background:white;
+  padding:20px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #ddd;
+}
+
+.profile{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.profile span{
+  font-size:28px;
+}
+
+.profile div{
+  font-size:14px;
+}
+
+.profile strong{
+  display:block;
+}
+
+header button{
+  background:#111;
+  color:white;
+  border:none;
+  padding:10px 18px;
+  border-radius:4px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+/* MAIN */
+main{
+  max-width:900px;
+  margin:40px auto;
+  padding:0 20px;
+}
+
+/* FORM */
+#form{
+  display:none;
+  background:white;
+  padding:30px;
+  border-radius:6px;
+  box-shadow:0 4px 20px rgba(0,0,0,.08);
+  animation:fadeIn .4s ease;
+}
+
+#form h2{
   margin-bottom:20px;
 }
-a{
-  display:inline-block;
-  margin-top:20px;
+
+input, textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border:1px solid #ccc;
+  border-radius:4px;
+  font-size:14px;
+}
+
+textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.publish-btn{
+  background:#111;
+  color:white;
+  border:none;
+  padding:12px;
+  font-size:15px;
+  border-radius:4px;
+  cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Dashboard SEE</h1>
-<p>Bienvenue dans l’espace professionnel.</p>
+<header>
+  <div class="profile">
+    <span>👤</span>
+    <div>
+      <strong>Admin SEE</strong>
+      Journaliste / Rédacteur
+    </div>
+  </div>
 
-<a href="index.html">← Retour à l’accueil</a>
+  <button onclick="openForm()">➕ Nouvelle publication</button>
+</header>
+
+<main>
+  <div id="form">
+    <h2>Nouvelle publication</h2>
+
+    <input id="title" placeholder="Titre de l'article">
+    <input id="image" placeholder="Lien de l'image">
+    <input id="source" placeholder="Source (ex: AFP, SEE)">
+    <textarea id="content" placeholder="Contenu de l'article"></textarea>
+
+    <button class="publish-btn" onclick="publish()">Publier</button>
+  </div>
+</main>
+
+<script src="app.js"></script>
+<script>
+function openForm(){
+  document.getElementById("form").style.display = "block";
+}
+</script>
 
 </body>
 </html>
