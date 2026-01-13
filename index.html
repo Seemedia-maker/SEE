@@ -20,12 +20,12 @@ body{
   color:#111;
 }
 
-/* ===== NAV BAR ===== */
+/* ===== NAV ===== */
 nav{
   position:sticky;
   top:0;
   z-index:1000;
-  background:white;
+  background:#fff;
   border-bottom:1px solid #ddd;
   padding:14px 24px;
   display:flex;
@@ -47,11 +47,10 @@ nav ul{
 nav ul li a{
   text-decoration:none;
   color:#111;
-  font-weight:500;
   font-size:14px;
+  font-weight:500;
 }
 
-/* LOGIN / DASHBOARD */
 .login-link{
   display:flex;
   align-items:center;
@@ -61,15 +60,12 @@ nav ul li a{
   color:#111;
 }
 
-.login-link span{
-  font-size:18px;
-}
-
 /* ===== HERO ===== */
 header{
   background:white;
-  padding:60px 24px;
+  padding:70px 24px;
   border-bottom:1px solid #ddd;
+  animation:heroFade 1s ease;
 }
 
 header h1{
@@ -82,6 +78,11 @@ header p{
   font-size:18px;
   color:#444;
   max-width:700px;
+}
+
+@keyframes heroFade{
+  from{opacity:0; transform:translateY(-20px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
 /* ===== ARTICLES ===== */
@@ -102,11 +103,12 @@ main{
   border-radius:6px;
   overflow:hidden;
   box-shadow:0 4px 20px rgba(0,0,0,0.06);
-  transition:.3s;
+  animation:fadeUp .7s ease forwards;
 }
 
-.card:hover{
-  transform:translateY(-4px);
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
 .card img{
@@ -137,6 +139,26 @@ main{
   color:#777;
 }
 
+/* ===== ADMIN ACTIONS ===== */
+.admin-actions{
+  margin-top:12px;
+  display:flex;
+  gap:10px;
+}
+
+.admin-actions button{
+  border:none;
+  background:#eee;
+  padding:6px 10px;
+  font-size:12px;
+  border-radius:4px;
+  cursor:pointer;
+}
+
+.admin-actions button:hover{
+  background:#ddd;
+}
+
 /* ===== FOOTER ===== */
 footer{
   margin-top:60px;
@@ -150,12 +172,8 @@ footer{
 
 /* ===== MOBILE ===== */
 @media(max-width:800px){
-  nav ul{
-    display:none;
-  }
-  header h1{
-    font-size:30px;
-  }
+  nav ul{display:none;}
+  header h1{font-size:30px;}
 }
 </style>
 </head>
@@ -174,7 +192,6 @@ footer{
     <li><a href="contact.html">Contact</a></li>
   </ul>
 
-  <!-- LOGIN / DASHBOARD -->
   <a href="login.html" class="login-link" id="authLink">
     <span>👤</span> Login
   </a>
@@ -184,17 +201,14 @@ footer{
 <header>
   <h1>L’actualité, les médias et les voix qui comptent</h1>
   <p>
-    SEE est un média indépendant dédié à l’information, aux interviews
-    et aux formats audio qui décryptent le monde d’aujourd’hui.
+    SEE est un média indépendant dédié à l’information,
+    aux interviews et aux formats audio.
   </p>
 </header>
 
 <!-- ARTICLES -->
 <main>
   <section id="articles"></section>
-<script src="app.js"></script>
-    <!-- Articles injectés automatiquement -->
-  </section>
 </main>
 
 <!-- FOOTER -->
@@ -202,12 +216,14 @@ footer{
   © 2026 — SEE Média · Tous droits réservés
 </footer>
 
-<script>
-// ===== AUTH CHECK =====
-const authLink = document.getElementById("authLink");
-const isLogged = localStorage.getItem("see_logged");
+<script src="app.js"></script>
 
-if(isLogged === "true"){
+<script>
+/* ===== LOGIN DISPLAY ===== */
+const authLink = document.getElementById("authLink");
+const isConnected = localStorage.getItem("connected");
+
+if(isConnected === "true"){
   authLink.innerHTML = "<span>🧑‍💼</span> Dashboard";
   authLink.href = "dashboard.html";
 }
